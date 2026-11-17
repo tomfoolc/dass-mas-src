@@ -1,0 +1,5 @@
+﻿.scannerwork
+build
+node_modules/**
+has-dass-mas.fpr
+
