@@ -1,0 +1,29 @@
+#loginRemarkH {
+  font-size: 8pt;
+  font-weight: bold;
+  color: red;
+  text-decoration: underline;
+  text-align: center;
+}
+
+#loginRemarkI div {
+  font-size: 7pt;
+  color: red;
+}
+
+#logoContainer {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+#logoText {
+  position: absolute;
+  bottom: 10px;
+  left: 40px;
+  width: 350px;
+  height: 60px;
+  background: #a84909;
+  border-radius: 40px;
+  padding-top: 5px;
+}

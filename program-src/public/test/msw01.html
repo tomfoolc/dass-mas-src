@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charSet="UTF-8">
+</head>
+
+<script src="/test/script/common.js"></script>
+<script>
+
+    window.onload = (event) => {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString)
+        const hospital = urlParams.get('hospital').trim();        
+        document.getElementById("test_label").innerText = "EWS Demo Logon [Login : " + hospital + "MSW01]";
+    };
+    
+    function onClick() {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString)
+        const hospital = urlParams.get('hospital').trim();
+
+        if (checkAllowHospital(hospital)) {
+            document.getElementById("inst_code").value = hospital;
+            document.getElementById("user_id").value = hospital + "MSW01";
+            document.getElementById("user_name").value = "MSW User 01";
+            
+            if (hospital === "VH") {
+                document.getElementById("unit_code").value = "VH (HA)"
+            } else if (hospital === "FYK") {
+                document.getElementById("unit_code").value = "FYK (HA)"
+            } else if (hospital === "RH") {
+                document.getElementById("unit_code").value = "RHTSK"
+            } else if (hospital === "TWE") {
+                document.getElementById("unit_code").value = "TWEH"
+            } else if (hospital === "CHC") {
+                document.getElementById("unit_code").value = "CCH"
+            } else if (hospital === "YCH") {
+                document.getElementById("unit_code").value = "YCH"
+            } else if (hospital === "CMC") {
+                document.getElementById("unit_code").value = "CMC"
+            } else if (hospital === "POH") {
+                document.getElementById("unit_code").value = "POH"
+            } else if (hospital === "ML") {
+                document.getElementById("unit_code").value = "MMRC"
+            } else if (hospital === "DKC") {
+                document.getElementById("unit_code").value = "DKCH"
+            }
+
+            submit("ews");
+        } else {
+            alert("This hospital is not available for testing");
+        }
+    }
+
+</script>
+
+<body>
+
+    <div id="test_label"></div>
+    <img src="/test/images/ewslogon.png" alt="cms logon demo" onclick="onClick()" />
+
+    <div style="display: none">
+
+        <form id="frmToDASS" method="post"
+            action="https://has-dass-api-has-corp-dass-dev.tstcld61.server.ha.org.hk/has-dass-api/auth/ews">
+
+            <input type="submit" value="Login"> <br /><br />
+
+            inst_code : <input type="text" runat="server" name="inst_code" id="inst_code" value="VH" /><br />
+            user_id : <input type="text" runat="server" name="user_id" id="user_id" value="VHMSW01" /><br />
+            random_id : <input type="text" size="80" runat="server" name="random_id" id="random_id"
+                value="SEEtREFTUy1FV1MtVEVTVC1UT0tFTg==" /> <br />
+            user_name : <input type="text" runat="server" name="user_name" id="user_name"
+                value="VH MSW User 01" /><br />
+            unit_code : <input type="text" runat="server" name="unit_code" id="unit_code" value="VH (HA)" /><br />
+            tel_no : <input type="text" runat="server" name="tel_no" id="tel_no" value="23008190" /><br />
+            email : <input type="text" runat="server" name="email" id="email" value="" /><br />
+            rank : <input type="text" runat="server" name="rank" id="rank" value="SWO" /><br />
+
+        </form>
+    </div>
+
+    <body>
+
+</html>

@@ -1,0 +1,11 @@
+input::file-selector-button {
+  color: white;
+  background-color: rgb(63, 81, 181);
+  padding: 0;
+  margin: 2;
+  height: 30px;
+  width: 120px;
+  border-radius: 3px;
+  border: 0px;
+  text-transform: uppercase;
+}

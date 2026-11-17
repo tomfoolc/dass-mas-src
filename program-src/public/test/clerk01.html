@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charSet="UTF-8">
+</head>
+
+<script src="/test/script/common.js"></script>
+<script>
+
+    window.onload = (event) => {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString)
+        const hospital = urlParams.get('hospital').trim();        
+        document.getElementById("test_label").innerText = "CMS Demo Logon [Login : " + hospital + "CLERK01]";
+    };    
+
+    function onClick() {
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString)
+        const hospital = urlParams.get('hospital').trim();
+
+        if (checkAllowHospital(hospital)) {
+
+            document.getElementById("inst_code").value = hospital;
+            document.getElementById("user_id").value = hospital + "CLERK01";
+            
+            document.getElementById("userSpec").value = "WARD";
+            document.getElementById("fullName").value = "CLERK USER 01";
+            document.getElementById("rank").value = "CIII";
+            document.getElementById("rankDesc").value = "";
+            document.getElementById("rankAlias").value = "";
+            document.getElementById("deptCode").value = "";
+
+            document.getElementById("ipAddress").value = "160.1.39.61";
+            document.getElementById("wrkStnID").value = hospital + "_HAHO";
+            document.getElementById("hospCode").value = hospital;
+            document.getElementById("printCode").value = hospital;
+            document.getElementById("haCmsUserSpecialty").value = "";
+            document.getElementById("defaultWard").value = "2A";
+
+            submit("cias");
+        } else {
+            alert("This hospital is not available for testing");
+        }
+
+    }
+    
+</script>
+
+<body>
+
+    <div id="test_label"></div>
+    <img src="/test/images/cmslogon2.png" alt="cms logon demo" onclick="onClick()" />
+
+    <div style="display: none">
+
+        <form id="frmToDASS" method="post" action="/">
+            <input type="submit" value="Login"> <br /><br />
+
+            inst_code : <input type="text" runat="server" name="inst_code" id="inst_code" value="" /><br />
+            user_id : <input type="text" runat="server" name="user_id" id="user_id" value="" /><br />
+            random_id : <input type="text" size="80" runat="server" name="random_id" id="random_id"
+                value="SEEtREFTUy1DSUFTLVRFU1QtVE9LRU4=" /> <br />
+
+            userSpec : <input type="text" runat="server" name="userSpec" id="userSpec" value="" /><br />
+            fullName : <input type="text" runat="server" name="fullName" id="fullName" value="" /><br />
+            rank : <input type="text" runat="server" name="rank" id="rank" value="" /><br />
+            rankDesc : <input type="text" runat="server" name="rankDesc" id="rankDesc" value="" /><br />
+            rankAlias : <input type="text" runat="server" name="rankAlias" id="rankAlias" value="" /><br />
+            deptCode : <input type="text" runat="server" name="deptCode" id="deptCode" value="" /><br />
+
+            patientKey : <input type="text" runat="server" name="patientKey" id="patientKey" value="" /><br />
+            patientHKID : <input type="text" runat="server" name="patientHKID" id="patientHKID" value="" /><br />
+            chineseName : <input type="text" runat="server" name="chineseName" id="chineseName" value="" /><br />
+            englishName : <input type="text" runat="server" name="englishName" id="englishName" value="" /><br />
+            sex : <input type="text" runat="server" name="sex" id="sex" value="" /><br />
+            age : <input type="text" runat="server" name="age" id="age" value="" /><br />
+            birthday : <input type="text" runat="server" name="birthday" id="birthday" value="" /><br />
+            caseNo : <input type="text" runat="server" name="caseNo" id="caseNo" value="" /><br />
+            caseType : <input type="text" runat="server" name="caseType" id="caseType" value="" /><br />
+            caseSpec : <input type="text" runat="server" name="caseSpec" id="caseSpec" value="" /><br />
+            caseNsCode : <input type="text" runat="server" name="caseNsCode" id="caseNsCode" value="" /><br />
+            caseBedNo : <input type="text" runat="server" name="caseBedNo" id="caseBedNo" value="" /><br />
+            caseAdmDatetime : <input type="text" runat="server" name="caseAdmDatetime" id="caseAdmDatetime"
+                value="" /><br />
+            deathInd : <input type="text" runat="server" name="deathInd" id="deathInd" value="N" /><br />
+            deathDatetime : <input type="text" runat="server" name="deathDatetime" id="deathDatetime" value="" /><br />
+
+            ipAddress : <input type="text" runat="server" name="ipAddress" id="ipAddress" value="" /><br />
+            wrkStnID : <input type="text" runat="server" name="wrkStnID" id="wrkStnID" value="" /><br />
+            hospCode : <input type="text" runat="server" name="hospCode" id="hospCode" value="" /><br />
+            printCode : <input type="text" runat="server" name="printCode" id="printCode" value="" /><br />
+            haCmsUserSpecialty : <input type="text" runat="server" name="haCmsUserSpecialty" id="haCmsUserSpecialty"
+                value="" /><br />
+            defaultWard : <input type="text" runat="server" name="defaultWard" id="defaultWard" value="" /><br />
+
+        </form>
+    </div>
+
+    <body>
+
+</html>

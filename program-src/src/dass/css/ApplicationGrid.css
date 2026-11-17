@@ -1,0 +1,49 @@
+.gridHeader {
+  background-color: rgb(43, 100, 167);
+  color: white;
+  font-weight: bold;
+}
+
+.statusInProgress {
+  border-left: 10px solid white;
+}
+
+.statusWarning {
+  border-left: 10px solid orange;
+}
+
+.statusOutstanding {
+  border-left: 10px solid red;
+}
+
+.statusNC {
+  border-left: 10px solid rgba(255, 255, 255, 1);
+}
+
+.statusNF {
+  border-left: 10px solid rgba(158, 158, 158, 1);
+}
+
+.statusPE {
+  border-left: 10px solid rgba(251, 172, 188, 1);
+}
+
+.statusRE {
+  border-left: 10px solid rgba(151, 185, 255, 1);
+}
+
+.statusCO {
+  border-left: 10px solid rgb(0, 162, 232, 1);
+}
+
+.statusCL {
+  border-left: 10px solid rgb(114, 91, 117);
+}
+
+.statusCA {
+  border-left: 10px solid rgb(52, 53, 53);
+}
+
+.statusVO {
+  border-left: 10px solid rgb(52, 53, 53);
+}
